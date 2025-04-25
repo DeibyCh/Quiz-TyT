@@ -62,7 +62,7 @@ foreach ($modules as $module) {
 <body>
     <div class="about-page">
         <main>
-            <header class="site-header">
+            <header class="site-header mt-2">
                 <div class="section-overlay"></div>
                 <div class="container">
                     <div class="row">

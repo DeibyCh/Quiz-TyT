@@ -59,7 +59,7 @@ foreach ($user_answers as $question_id => $answer) {
     </style>
 </head>
 <body>
-    <div class="about-page">
+    <div class="about-page mt-2">
         <main>
             <header class="site-header">
                 <div class="section-overlay"></div>

@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </section>
 
 
-<section class="d-flex justify-content-center align-items-center mt-5">
+<section class="d-flex justify-content-center align-items-center mt-3">
         <div class="container d-flex justify-content-center">
             <div class="col-lg-6 col-12">
 

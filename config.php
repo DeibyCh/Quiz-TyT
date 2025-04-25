@@ -14,6 +14,8 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
+error_reporting(E_ALL); // O solo los que quieres mostrar
+ini_set('display_errors', '0'); // No mostrar errores al usuario
 
 $quiz_duration = 300; // Tiempo límite en segundos (ejemplo: 300 segundos = 5 minutos)
 ?>

@@ -24,7 +24,7 @@ Bootstrap 5 HTML CSS Template
     include "templates/nav2.php"; 
     ?>
     <main>
-        <section class="hero-section d-flex justify-content-center align-items-center mt-5">
+        <section class="hero-section d-flex justify-content-center align-items-center mt-2">
             <div class="section-overlay"></div>
             <div class="container">
                 <div class="row">
@@ -48,7 +48,7 @@ Bootstrap 5 HTML CSS Template
             </div>
         </section>
 
-        <section class="cta-section mt-5">
+        <section class="cta-section mt-2">
             <div class="section-overlay"></div>
                 <div class="container">
                     <div class="row">
