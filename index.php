@@ -24,41 +24,10 @@ Bootstrap 5 HTML CSS Template
     </head>
     
     <body>
-        
-    <nav class="navbar navbar-expand-lg" id="top">
-    <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="index.php">
-            <div class="d-flex flex-column">
-                <strong class="logo-text">Preguntas saber TyT</strong>
-                <small class="logo-slogan">Icfes</small>
-            </div>
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav align-items-center ms-lg-5">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.php">Acerca de</a>
-                </li>
-                <li class="nav-item ms-lg-auto">
-                    <a class="nav-link" href="register.php">Regístrate</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link custom-btn btn" href="login.php">Iniciar sesión</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
+        <?php
+        include "templates/nav2.php"; 
+        ?>
         <main>
-
             <section class="hero-section d-flex justify-content-center align-items-center mt-5">
                 <div class="section-overlay"></div>
 

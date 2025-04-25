@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start();
 require 'config.php';
 include "templates/header.php"; 
@@ -17,9 +17,9 @@ $stmt->bind_result($username);
 $stmt->fetch();
 $stmt->close();
 
-$quiz_duration = 3600; // 1 hora
+$quiz_duration = 7200; // 2 horas en segundos
 
-$modules = ["Lectura Crítica", "Razonamiento Cuantitativo", "Competencias Ciudadanas", "Inglés"];
+$modules = ["Lectura Critica", "Razonamiento Cuantitativo", "Competencias Ciudadanas", "Ingles"];
 $questions_by_module = [];
 
 foreach ($modules as $module) {
@@ -37,6 +37,8 @@ foreach ($modules as $module) {
 <head>
     <title>Cuestionario</title>
     <link rel="stylesheet" href="style.css">
+
+    <!--funcion cronometro-->
     <script>
         let timeLeft = <?php echo $quiz_duration; ?>;
         function formatTime(seconds) {
@@ -86,7 +88,7 @@ foreach ($modules as $module) {
                                 </div>
                             </div>
 
-                            <div class="container text-center">
+                            <div class="container ">
                                 <div class="row">
                                     <div class="col-3 p-3 mb-2"></div>
                                     <div class="col align-self-center">
@@ -94,14 +96,14 @@ foreach ($modules as $module) {
 
                                             <?php foreach ($questions_by_module as $module => $questions): ?>
 
-                                                <!-- Card de módulo -->
+                                                <!-- Card del módulo -->
                                                 <div class="card bg-primary-subtle mb-3">
                                                     <div class="card-body">
                                                         <h4 class="mt-1"><?php echo htmlspecialchars($module); ?></h4>
                                                     </div>
                                                   </div>
 
-                                                <!-- Card de preguntas-->
+                                                <!-- Card de las preguntas-->
                                                 <?php foreach ($questions as $q): ?>
                                                     <div class="card mt-4 mb-4">
                                                         
@@ -119,23 +121,27 @@ foreach ($modules as $module) {
                                                             <?php endif; ?>
 
                                                         <div class="card-body">
+
+                                                            <!-- Título de la pregunta -->
                                                             <h6 class="card-title">
                                                                 <?php
                                                                 echo nl2br(htmlspecialchars(str_replace('\n', "\n", $q['question'])));
                                                                 ?>
                                                             </h6>
-                                                            <ul class="list-group list-group-flush">
+
+                                                            <!-- Opciones de respuesta -->
+                                                            <ul class="list-group list-group-flush text-center">
                                                                 <li class="list-group-item">
-                                                                    <input type="radio" name="answer[<?php echo $q['id']; ?>]" value="A"> <?php echo nl2br(str_replace('\n', "\n", $q['option_a'])); ?>
+                                                                    A. <input type="radio" name="answer[<?php echo $q['id']; ?>]" value="A"> <?php echo nl2br(str_replace('\n', "\n", $q['option_a'])); ?>
                                                                 </li>
                                                                 <li class="list-group-item">
-                                                                    <input type="radio" name="answer[<?php echo $q['id']; ?>]" value="A"> <?php echo nl2br(str_replace('\n', "\n", $q['option_b'])); ?>
+                                                                    B. <input type="radio" name="answer[<?php echo $q['id']; ?>]" value="B"> <?php echo nl2br(str_replace('\n', "\n", $q['option_b'])); ?>
                                                                 </li>
                                                                 <li class="list-group-item">
-                                                                    <input type="radio" name="answer[<?php echo $q['id']; ?>]" value="A"> <?php echo nl2br(str_replace('\n', "\n", $q['option_c'])); ?>
+                                                                    C. <input type="radio" name="answer[<?php echo $q['id']; ?>]" value="C"> <?php echo nl2br(str_replace('\n', "\n", $q['option_c'])); ?>
                                                                 </li>
                                                                 <li class="list-group-item">
-                                                                    <input type="radio" name="answer[<?php echo $q['id']; ?>]" value="A"> <?php echo nl2br(str_replace('\n', "\n", $q['option_d'])); ?>
+                                                                    D. <input type="radio" name="answer[<?php echo $q['id']; ?>]" value="D"> <?php echo nl2br(str_replace('\n', "\n", $q['option_d'])); ?>
                                                                 </li>
                                                             </ul>
                                                         </div>

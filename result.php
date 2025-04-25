@@ -3,6 +3,7 @@ session_start();
 require 'config.php';
 include "templates/header.php"; 
 include "templates/nav.php";
+
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit();
@@ -97,12 +98,23 @@ foreach ($user_answers as $question_id => $answer) {
                                                   </thead>
                                                   <tbody>
                                                       <?php foreach ($questions_result as $q): ?>
-                                                          <tr>
-                                                              <td><?php echo htmlspecialchars($q['id']); ?></td>
-                                                              <td><?php echo htmlspecialchars($q['options'][ord($q['selected_option']) - 65]); ?></td>
-                                                              <td><?php echo htmlspecialchars($q['options'][ord($q['correct_option']) - 65]); ?></td>
-                                                          </tr>
-                                                      <?php endforeach; ?>
+                                                        <tr>
+                                                            <td><?php echo htmlspecialchars($q['id']); ?></td>
+                                                            <td>
+                                                                <?php
+                                                                    $selected_index = isset($q['selected_option']) ? ord($q['selected_option']) - 65 : null;
+                                                                    echo htmlspecialchars($q['options'][$selected_index] ?? 'No respondida');
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                    $correct_index = isset($q['correct_option']) ? ord($q['correct_option']) - 65 : null;
+                                                                    echo htmlspecialchars($q['options'][$correct_index] ?? 'No disponible');
+                                                                ?>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+
                                                   </tbody>
                                                 </table>
                                                 <div class="container text-center mb-5">
